@@ -1,0 +1,17 @@
+body {
+    background-color: #d0e4fe;
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: orange;
+    text-align: center;
+}
+
+p {
+    font-family: "Comic Sans MS";
+    font-size: 30px;
+    text-align: center;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+<title> About </title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65712813-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<meta charset="UTF-8">
+
+<link rel="shortcut icon" href="favicon.ico" type="image/ico">
+
+<link rel="stylesheet" href="style.css">
+
+</body>
+
+<script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+
+<p>Enter Text:</p>
+<input id="text" style="width: 200; height: 80;" type="text" name="type text here">
+<br>
+
+<button type="button" onclick="enter()">Send</button>
+<button type="button" onclick="clearchat()">Clear</button>
+<br><br>
+<textarea width = "500" height = "500" id = "words">words</textarea>
+
+<script>
+  var totaltext = "";
+  var myFirebaseRef = new Firebase("https://3d3t.firebaseio.com/");
+
+  myFirebaseRef.child("chat").on("value", function(snapshot) {
+  		totaltext = snapshot.val();
+  		document.getElementById("words").innerHTML = totaltext;
+	});
+
+  function clearchat(){
+  	  var o = {};
+  	  o.chat = "";
+  	  myFirebaseRef.set(o);
+  }
+
+  function enter(){
+  	  var text = document.getElementById("text").value;
+
+  	  totaltext += (text + '\n');
+
+  	  var o = {};
+  	  o.chat = totaltext;
+  	  myFirebaseRef.set(o);
+
+  	  document.getElementById("text").innerHTML = "";
+  }
+</script>
+<br><br><br><br><br><br>
+
+
+</html>

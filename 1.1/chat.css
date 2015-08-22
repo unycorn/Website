@@ -1,0 +1,20 @@
+body {
+    background-color: #d0e4fe;
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+}
+
+h1 {
+    color: orange;
+    text-align: center;
+}
+
+p {
+    font-family: "Comic Sans MS";
+    font-size: 18px;
+}
+
+textarea {
+	width: 500px;
+	height: 400px;
+}

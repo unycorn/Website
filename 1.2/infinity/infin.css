@@ -1,0 +1,19 @@
+body {
+  background-color: rgb(208, 228, 254);
+  font-family: "Comic Sans MS";
+  font-size: 20px;
+
+  text-align: center;
+}
+h1 {
+  font-family: "Comic Sans MS";
+  font-size: 25px;
+
+  text-align: center;
+}
+p {
+  font-family: "Comic Sans MS";
+  font-size: 25px;
+
+  text-align: center;
+}

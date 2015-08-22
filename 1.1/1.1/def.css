@@ -1,0 +1,15 @@
+body {
+    background-image: url("img/infinsmall.png");
+    background-repeat: repeat;
+    background-color: #220000;
+    color: #ef0000;
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+
+    text-align: center;
+}
+
+h1 {
+    font-family: "Comic Sans MS";
+    font-size: 25px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <title> About </title>
+
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="chat.css">
+
+</body>
+
+<script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+
+<p>Enter Code:</p>
+<input id="code" style="width: 200; height: 80;" type="code" name="type code here">
+
+<p>Enter Text:</p>
+<input id="text" style="width: 200; height: 80;" type="text" name="type text here">
+<br>
+
+<button type="button" onclick="enter()">Send</button>
+<button type="button" onclick="clearchat()">Clear</button>
+<br>
+<br>
+<textarea id="words"></textarea>
+
+<script>
+  var secret = "SuperSecret123";
+
+  var totaltext = "";
+  var myFirebaseRef = new Firebase("https://3d3t.firebaseio.com/");
+  var code = document.getElementById("code").value;
+
+  myFirebaseRef.child("chat").on("value", function(snapshot) {
+    code = document.getElementById("code").value;
+
+    if (code == "secret") {
+      totaltext = snapshot.val();
+    }
+    document.getElementById("words").innerHTML = totaltext;
+  });
+
+  function clearchat() {
+    var o = {};
+    o.chat = "";
+    myFirebaseRef.set(o);
+  }
+
+  function enter() {
+    var text = document.getElementById("text").value;
+    code = document.getElementById("code").value;
+
+    if (code == "secret") {
+      totaltext += (text + '\n');
+
+    }
+
+    var o = {};
+    o.chat = totaltext;
+    myFirebaseRef.set(o);
+
+    document.getElementById("text").innerHTML = " ";
+  }
+</script>
+<br>
+<br>
+<a href="index.php"><h1>Home</h1></a>
+
+
+</html>
