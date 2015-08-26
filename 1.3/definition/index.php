@@ -1,5 +1,16 @@
 <link rel="stylesheet" href="/definition/def.css">
 <title>Definitions</title>
+
+<?php
+$string = "";
+
+$fp = fopen("IPlist.txt", "a");
+$ip = $_SERVER['REMOTE_ADDR'] . "\n";
+
+fwrite($fp, $ip);
+fclose($fp);
+?>
+
 <br>
 <br>
 <body>

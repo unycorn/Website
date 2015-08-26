@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+$string = "";
+
+$fp = fopen("IPlist.txt", "a");
+$ip = $_SERVER['REMOTE_ADDR'] . "\n";
+
+fwrite($fp, $ip);
+fclose($fp);
+?>
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/infinity/infin.css">
