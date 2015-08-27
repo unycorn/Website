@@ -3,7 +3,15 @@
 
 <?php
 
-echo $_POST["code"];
+$theCode = "southjapan";
+$theFile = fopen("C:\apache\htdocs\chat.txt", "r+");
+$theWords = file_get_contents($theFile);
+
+echo $theWords;
+
+if ($_POST["code"] == $theCode) {
+
+}
 
 ?>
 
@@ -36,7 +44,7 @@ echo $_POST["code"];
 <br>
 <br>
 
-<textarea id="words"></textarea>
+<textarea id="words"><?php echo $theWords; ?></textarea>
 
 
 <br>
